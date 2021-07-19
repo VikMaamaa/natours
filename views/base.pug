@@ -1,0 +1,61 @@
+doctype html
+html
+  head
+   block head
+    meta(charset='UTF-8') 
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    //- meta(http-equiv='Content-Security-Policy' content='default-src data:image/webp http://127.0.0.1:8000/ \'self\' https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js  https://fonts.gstatic.com/s/lato/v17/ https://api.mapbox.com/mapbox-gl-js/v2.1.1/; script-src http://127.0.0.1:8000/ https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js http://127.0.0.1:8000/js/login.js  http://127.0.0.1:8000/js/mapbox.js https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js; style-src \'self\' \'unsafe-inline\' https://fonts.googleapis.com/css https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css')
+    link(rel='stylesheet' href='/css/w3.css') 
+    link(rel='stylesheet' href='/css/style.css')    
+    link(rel='shortcut icon' type='image/png' href='img/favicon.png')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+    title Natours |#{title}
+   
+  body   
+    // HEADER
+    .div#alert
+    include _header
+
+    // CONTENT
+    block content
+        h1 This is a Place Holder holding
+
+    // FOOTER
+    include _footer   
+    
+    .w3-card(style='z-index:1000')
+      #id07.w3-modal
+        .w3-modal-content.w3-black.w3-border.w3-border-red.w3-padding(style='top:30%;')
+          header.w3-container.w3-black
+            span.w3-button.w3-display-topright.w3-hover-white(onclick='document.getElementById(\'id07\').style.display=\'none\';') ×
+            //  <h2>Notification!</h2> 
+          .w3-container.w3-center.w3-margin
+            h6#msg.w3-text-red.w3-large Incorrect Details
+
+
+    .w3-card(style='z-index:1000')
+      #id09.w3-modal
+        .w3-modal-content.w3-black.w3-border.w3-border-green.w3-padding(style='top:30%;')
+          header.w3-container.w3-black
+            span.w3-button.w3-display-topright.w3-hover-green(onclick='document.getElementById(\'id09\').style.display=\'none\';') ×
+            //  <h2>Notification!</h2> 
+          .w3-container.w3-center.w3-margin
+            h6#msg1.w3-text-green.w3-large Login Succesful
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js') 
+    //- script(src='/js/mapbox.js') 
+    //- script(src='/js/login.js') 
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/bundle.js') 
+    
+    //- script(src='https://checkout.stripe.com/checkout.js')
+    script.
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+          document.getElementById("icod").style.display = "none";
+        }
+  
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+          document.getElementById("icod").style.display = "block";
+        }
+  

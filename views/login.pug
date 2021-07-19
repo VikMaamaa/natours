@@ -1,0 +1,29 @@
+extends base
+
+block content
+  
+  main.main.w3-hide-small(style='padding-top:7%;padding-left:5%;padding-right:5%')
+    .login-form.w3-margin-bottom.w3-border.w3-margin-top(style='border-radius:3%;margin-bottom:0px;')
+        h2.heading-secondary.ma-bt-lg Log into your account
+        form.form.form--login
+            .form__group(style='width:100%')
+                label.form__label(for='email') Email address
+                input#email.form__input(type='email', placeholder='you@example.com', required)
+            .form__group.ma-bt-md
+                label.form__label(for='password') Password
+                input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group.w3-hide-small
+                button.btn.btn--green Login
+
+  main.main.w3-hide-large.w3-hide-medium(style='padding-top:7%;padding-left:5%;padding-right:5%')
+    .login-form.w3-margin-bottom.w3-border.w3-margin-top(style='border-radius:3%;margin-bottom:0px;padding:15%')
+        h2.heading-secondary.ma-bt-lg Log into your account
+        form.form.f1
+            .form__group(style='width:100%')
+                label.form__label(for='email') Email address
+                input#semail.form__input(type='email', placeholder='you@example.com', required)
+            .form__group.ma-bt-md
+                label.form__label(for='password') Password
+                input#spassword.form__input(type='password', placeholder='••••••••', required, minlength='8')
+            .form__group.w3-hide-large.w3-hide-medium.w3-center
+                button.btn.btn--green Login                

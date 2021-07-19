@@ -1,0 +1,48 @@
+extends base
+
+block content
+        main.main(style=`padding-top:7%;padding-left:5%;padding-right:5%;padding-bottom:5%;`)
+            .login-form.w3-margin-bottom.w3-border.w3-margin-top.w3-border-green.w3-text-white(style='margin-bottom:0px;background-color: #444;')
+                .w3-padding.w3-center.w3-margin-bottom.w3-round.w3-border.w3-border-flat-asbestos(style="background-color: #444;")
+                    h2.heading-secondary.w3-text-white(style="background-color: #444;") Update: #{tourG.name} Tour
+                form.form.update-tour-form
+                    hr 
+                    h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Tour Guides
+                    .form__group.ma-bt-md
+                        label.form__label(for='gname') Name
+                        input.w3-text-black.gname.form__input(type='text',  required, name='gname')
+                    .form__group.ma-bt-md
+                        label.form__label(for='gname') Name
+                        input.w3-text-black.gname.form__input(type='text',  required, name='gname')    
+                    hr 
+                    h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Start Location
+                    .form__group
+                        label.form__label(for='Description') Description
+                        input.w3-text-black#descriptionSub.form__input(type='text',  required,name='descriptionSub')
+                    .form__group.ma-bt-md
+                        label.form__label(for='type') Type
+                        input.w3-text-black#type.form__input(type='text',  required, name='type')
+                    .form__group.ma-bt-md
+                        label.form__label(for='coordinates') Coordinates
+                        input.w3-text-black#coordinates.form__input(type='text',  required, name='coordinates')  
+                    .form__group.ma-bt-md
+                        label.form__label(for='address') Address
+                        input.w3-text-black#address.form__input(type='text',  required, name='address') 
+                    hr     
+                    h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Locations
+                    .form__group
+                        label.form__label(for='Description') Description
+                        input.w3-text-black#descriptionL.form__input(type='text',  required,name='descriptionSub')
+                    .form__group.ma-bt-md
+                        label.form__label(for='typeL') Type
+                        input.w3-text-black#typeL.form__input(type='text',  required, name='typeL')
+                    .form__group.ma-bt-md
+                        label.form__label(for='coordinatesL') Coordinates
+                        input.w3-text-black#coordinatesL.form__input(type='text',  required, name='coordinatesL')   
+                    .form__group.ma-bt-md
+                        label.form__label(for='dayL') Day
+                        input.w3-text-black#dayL.form__input(type='text',  required, name='dayL')  
+                    hr    
+                    .form__group.right
+                        input(type="hidden" id="tour" value=`${tourG._id}`)
+                        button.w3-white.btn.btn--small.btn--green Save                   

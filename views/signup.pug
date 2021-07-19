@@ -1,0 +1,42 @@
+extends base
+
+block content
+    main.main.w3-hide-small(style='padding-top:7%;padding-left:5%;padding-right:5%')
+        .login-form.w3-margin-bottom.w3-border.w3-margin-top(style='border-radius:3%;margin-bottom:0px;')
+            h2.heading-secondary.ma-bt-lg Register
+            form.form.form--register
+                .form__group(style='width:100%')
+                    label.form__label(for='name') Name
+                    input#name.form__input(type='text', placeholder='name', required)
+                .form__group(style='width:100%')
+                    label.form__label(for='email') Email address
+                    input#email.form__input(type='email', placeholder='you@example.com', required)
+                .w3-row-padding(style='margin:0 -16px;')
+                    .form__group.ma-bt-md.w3-half
+                        label.form__label(for='password') Password
+                        input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                    .form__group.ma-bt-md.w3-half
+                        label.form__label(for='passwordConfirm') Password Confirm
+                        input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')    
+                .form__group.w3-hide-small
+                    button.btn.btn--green Register
+
+    main.main.w3-hide-large.w3-hide-medium(style='padding-top:7%;padding-left:5%;padding-right:5%')
+        .login-form.w3-margin-bottom.w3-border.w3-margin-top(style='border-radius:3%;margin-bottom:0px;padding:15%')
+            h2.heading-secondary.ma-bt-lg Register
+            form.form.sregister
+                .form__group(style='width:100%')
+                    label.form__label(for='sname') Name
+                    input#sname.form__input(type='text', placeholder='name', required)
+                .form__group(style='width:100%')
+                    label.form__label(for='email') Email address
+                    input#semail.form__input(type='email', placeholder='you@example.com', required)
+                .w3-row-padding(style='margin:0 -16px;')
+                    .form__group.ma-bt-md.w3-half
+                        label.form__label(for='apassword') Password
+                        input#spassword.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                    .form__group.ma-bt-md.w3-half
+                        label.form__label(for='apasswordConfirm') Password Confirm
+                        input#spasswordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')    
+                .form__group.w3-hide-large.w3-hide-medium.w3-center
+                    button.btn.btn--green Register     

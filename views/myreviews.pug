@@ -1,0 +1,26 @@
+extends base
+
+block content
+    main.w3-row(style='padding-left:0;')
+        .w3-container.w3-light-gray.w3-padding(style='width:100%;padding-left:0%')
+            each review in reviews
+                    .w3-container.w3-margin-bottom.w3-margin-top(class='w3-col m6 l4',style='margin-left:0.0%;')
+                        .w3-card(style='width:100%')
+                        .card__header
+                            .card__picture
+                                .card__picture-overlay &nbsp;
+                                img.card__picture-img(src=`img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+                            h3.heading-tertirary
+                                span= review.tour.name
+
+                        .card__details
+                            h4.card__sub-heading= `${review.tour.difficulty} ${review.tour.duration}-day tour` 
+                            p.card__text= review.review 
+                            input#review-id(type="hidden" value=`${review.id}`)
+
+                        .w3-cell-row
+                            a.w3-cell.bt.w3-margin.w3-btn.btn--green(href=`/update-review/${review.tour.slug}/${review.id}`,class='w3-hide-small',style='font-size: 1.6rem;padding: 1.4rem 3rem;text-transform: uppercase;') Edit
+                            a.w3-cell.btw3-margin.w3-btn.btn--green.review-delete(data-review-id =`${review.id}`,class='w3-hide-small ',style='font-size: 1.6rem;padding: 1.4rem 3rem;text-transform: uppercase;background-color: #444;') Delete
+                        .w3-cell-row(style='width:100%;padding:2%')
+                            a.w3-cell.bt.w3-btn.btn--green(href=`/update-review/${review.tour.slug}`,class='w3-hide-large w3-hide-medium',style='font-size: 1.6rem;width:') Edit
+                            a.w3-cell.bt.w3-btn.btn--green.sreview-delete(data-review-id =`${review.id}`,class='w3-hide-large w3-hide-medium',style='font-size: 1.6rem;background-color: #444;') Delete

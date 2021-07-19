@@ -1,0 +1,43 @@
+extends base
+
+block content
+    main.w3-row(style='padding-left:0;')
+        .w3-container.w3-light-gray.w3-padding(style='width:100%;padding-left:0%')
+            each booking in bookings
+                    .w3-container.w3-margin-bottom.w3-margin-top(class='w3-col m6 l4',style='margin-left:0.0%;')
+                        .w3-card(style='width:100%')
+                        .card__header
+                            .card__picture
+                                //- .card__picture-overlay &nbsp;
+                                img.card__picture-img(src=`img/users/${booking.user.photo}`, alt=`${booking.user.name}`)
+                            h3.heading-tertirary
+                                span= `${booking.user.name} `
+
+                        .card__details.w3-white
+                            h4.card__sub-heading= `${booking.tour.name} ` 
+                            p.w3-text-green.card__text=  `Paid: ${booking.paid}`
+                            p.card__text= `Email: ${booking.user.email}`
+                            input#tour-id(type="hidden" value=`${booking.tour.id}`)
+                            .overview-box__group(class='w3-show')
+                            h2.heading-secondary  Tour guides
+
+                            each guide in booking.tour.guides
+                                .overview-box__detail
+                                img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
+
+                                - if(guide.role === 'lead-guide')
+                                    span.overview-box__label Lead guide
+                                - if(guide.role === 'guide')
+                                    span.overview-box__label Tour guide  
+                                span.overview-box__text= guide.name
+                        .w3-cell-row.w3-white
+                                .w3-cell.w3-green(style='font-size: 1.6rem;padding: 1.4rem 3rem;text-transform: uppercase;')= `Amount ₦${booking.price*100}`
+                                
+                                .w3-cell.w3-text-white(style='font-size: 1.6rem;padding: 1.4rem 3rem;background-color: #444;')= `Role: ${booking.user.role}`
+                        //- .w3-cell-row
+                        //-     a.w3-cell.bt.w3-margin.w3-btn.btn--green(href=`/update-tour/${tour.slug}/${tour.id}`,class='w3-hide-small',style='font-size: 1.6rem;padding: 1.4rem 3rem;text-transform: uppercase;') Edit
+                        //-     a.w3-cell.btw3-margin.w3-btn.btn--green.tour-delete(data-tour-id =`${tour.id}`,class='w3-hide-small ',style='font-size: 1.6rem;padding: 1.4rem 3rem;text-transform: uppercase;background-color: #444;') Delete
+                        //- .w3-cell-row(style='width:100%;padding:2%')
+                        //-     a.w3-cell.bt.w3-btn.btn--green(href=`/update-tour/${tour.slug}`,class='w3-hide-large w3-hide-medium',style='font-size: 1.6rem;width:') Edit
+                        //-     a.w3-cell.bt.w3-btn.btn--green.stour-delete(data-review-id =`${tour.id}`,class='w3-hide-large w3-hide-medium',style='font-size: 1.6rem;background-color: #444;') Delete
+        

@@ -1,0 +1,110 @@
+extends base
+
+block content
+        main.main(style=`padding-top:7%;padding-left:5%;padding-right:5%;padding-bottom:5%;`)
+           
+            .login-form.w3-margin-bottom.w3-border.w3-margin-top.w3-border-green.w3-text-white(style='margin-bottom:0px;background-color: #444;')
+                .w3-padding.w3-center.w3-margin-bottom.w3-round.w3-border.w3-border-flat-asbestos(style="background-color: #444;")
+                    h2.heading-secondary.w3-text-white(style="background-color: #444;") Create Tour
+                form.form.create-tour-form
+                    .form__group.ma-bt-md
+                        label.form__label(for='name') Name
+                        input.w3-text-black#name.form__input.w3-text-black(type='text',  required, name='name')
+                    .form__group.ma-bt-md
+                        label.form__label(for='duration') Duration
+                        input.w3-text-black#duration.form__input(type='number',  required, name='duration')  
+                    .form__group.ma-bt-md
+                        label.form__label(for='maxGroupSize') Group Size
+                        input.w3-text-black#maxGroupSize.form__input(type='number',  required, name='maxGroupSize')   
+                    .form__group.ma-bt-md
+                        label.form__label(for='difficulty') Difficulty
+                        input.w3-text-black#difficulty.form__input(type='text',  required, name='difficulty')         
+                    .form__group
+                        label.form__label(for='description') Description
+                        textarea.w3-text-black#description.form__input(type='text',  required,name='description')
+                    .form__group.ma-bt-md
+                        label.form__label(for='name') Summary
+                        input.w3-text-black#summary.form__input(type='text',  required, name='summary')  
+                    .form__group.ma-bt-md
+                        label.form__label(for='price') Price
+                        input.w3-text-black#price.form__input(type='text',  required, name='price')      
+                    //- hr
+                    //- h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Tour Guides
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='gname') Name
+                    //-     input.w3-text-black.gname.form__input(type='text',  required, name='gname')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='gname') Name
+                    //-     input.w3-text-black.gname.form__input(type='text',  required, name='gname')    
+                    
+                    //- h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Start Location
+                    //- .form__group
+                    //-     label.form__label(for='Description') Description
+                    //-     input.w3-text-black#descriptionSub.form__input(type='text',  required,name='descriptionSub')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='type') Type
+                    //-     input.w3-text-black#type.form__input(type='text',  required, name='type')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='coordinates') Coordinates
+                    //-     input.w3-text-black#coordinates.form__input(type='text',  required, name='coordinates')  
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='address') Address
+                    //-     input.w3-text-black#address.form__input(type='text',  required, name='address')  
+                    hr
+                    h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Start Dates
+                    .form__group.ma-bt-md
+                        label.form__label(for='date1') Date 1
+                        input.w3-text-black.date.form__input(type='date',  required, max="2028-12-31" name='date1')   
+                    .form__group.ma-bt-md
+                        label.form__label(for='date2') Date 2
+                        input.w3-text-black.date.form__input(type='date',  required, max="2028-12-31" name='date2') 
+                    .form__group.ma-bt-md
+                        label.form__label(for='date3') Date 3
+                        input.w3-text-black.date.form__input(type='date',  required, max="2028-12-31" name='date3')  
+                    hr
+                    //- h2.heading-secondary.ma-bt-lg(style="background-color: #444;") Locations
+                    //- .form__group
+                    //-     label.form__label(for='Description') Description
+                    //-     input.w3-text-black#descriptionL.form__input(type='text',  required,name='descriptionSub')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='typeL') Type
+                    //-     input.w3-text-black#typeL.form__input(type='text',  required, name='typeL')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='coordinatesL') Coordinates
+                    //-     input.w3-text-black#coordinatesL.form__input(type='text',  required, name='coordinatesL')   
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='dayL') Day
+                    //-     input.w3-text-black#dayL.form__input(type='text',  required, name='dayL')        
+                    //- hr
+                    //- .form__group
+                    //-     label.form__label(for='Description') Description
+                    //-     input.w3-text-black#descriptionL.form__input(type='text',  required,name='descriptionSub')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='typeL') Type
+                    //-     input.w3-text-black#typeL.form__input(type='text',  required, name='typeL')
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='coordinatesL') Coordinates
+                    //-     input.w3-text-black#coordinatesL.form__input(type='text',  required, name='coordinatesL')  
+                    //- .form__group.ma-bt-md
+                    //-     label.form__label(for='addressL') Address
+                    //-     input.w3-text-black#addressL.form__input(type='text',  required, name='addressL')                     
+                    .form__group.form__photo-upload 
+                        //- input.w3-text-black(type="hidden" id="user" value=`${userG._id}`)
+                        //- img(src=`/img/users/${userG.photo}`, alt=`${userG.name}`)
+                        input.w3-text-black.form_upload(type='file', accept='image/*', id='imageCover', name='imageCover')
+                        label(for='imageCover') Choose Cover Image
+                    hr    
+                    .form__group.form__photo-upload     
+                        input.w3-text-black.form_upload(type='file', accept='image/*', id='image1', name='images' max='3')
+                        label(for='images') Choose  Tour Image 1
+                    .form__group.form__photo-upload     
+                        input.w3-text-black.form_upload(type='file', accept='image/*', id='image2', name='images' max='3')
+                        label(for='images') Choose  Tour Image 2
+                    .form__group.form__photo-upload     
+                        input.w3-text-black.form_upload(type='file', accept='image/*', id='image3', name='images' max='3')
+                        label(for='images') Choose  Tour Image 3    
+                    hr    
+                    .form__group.right
+                        button.w3-white.btn.btn--small.btn--green Save 
+                        
+                        

@@ -1,0 +1,83 @@
+extends base
+
+mixin navItem(link, text, icon, active)
+  li(class=`${active ? 'side-nav--active' : ''}`)
+    a(href=`${link}`)
+      svg
+        use(xlink:href=`img/icons.svg#icon-${icon}`)
+      | #{text}
+
+block content
+  main.main(style='padding:0;background-color:white')
+    .user-view(style='width:100%;margin-top:3%;margin-bottom:2%')
+      //- <!-- Sidebar -->
+      nav.w3-border-right#mySidebar(style='display:none; padding-top:0;background-image: -webkit-gradient( linear, left top, right bottom, from(#7dd56f), to(#28b487));background-image: linear-gradient(to right bottom, #7dd56f, #28b487);')
+            ul.side-nav
+                li.w3-large(onclick='w3_close()')
+                  a(href='#')
+                    |Close ×
+                +navItem('#','Settings','settings', true)
+                +navItem('/my-tours','My bookings','briefcase')
+                +navItem('/my-reviews','My reviews','star')
+                +navItem('#','Billing','credit-card')
+            - if (user.role === 'admin')
+                .admin-nav
+                h5.admin-nav__heading Admin
+                ul.side-nav
+                    +navItem('/manage-tours','Manage tours','map')
+                    +navItem('/manage-users','Manage users','users')
+                    +navItem('/manage-reviews','Manage reviews','star')
+                    +navItem('/manage-bookings','Manage bookings','briefcase')    
+      nav.user-view__menu.w3-card.w3-hide-medium.w3-hide-small
+        ul.side-nav
+          +navItem('#','Settings','settings', true)
+          +navItem('/my-tours','My bookings','briefcase')
+          +navItem('/my-reviews','My reviews','star')
+          +navItem('#','Billing','credit-card')
+        - if (user.role === 'admin')
+            .admin-nav
+            h5.admin-nav__heading Admin
+            ul.side-nav
+                +navItem('/manage-tours','Manage tours','map')
+                +navItem('/manage-users','Manage users','users')
+                +navItem('/manage-reviews','Manage reviews','star')
+                +navItem('/manage-bookings','Manage bookings','briefcase')
+               
+      .user-view__content(style='padding-top:2%')  
+        <button id='icod' class="w3-button w3-teal w3-margin-left w3-xlarge w3-hide-large" onclick="w3_open()">☰</button>
+        .user-view__form-container
+          h2.heading-secondary.ma-bt-md Your account settings
+          //-WITHOUT API
+          //- form.form.form-user-data(action='/submit-user-data' method='POST')
+
+          //- WITH API
+          form.form.form-user-data
+            .form__group
+              label.form__label(for='name') Name
+              input#name.form__input(type='text', value=`${user.name}`, required,name='name')
+            .form__group.ma-bt-md
+              label.form__label(for='email') Email address
+              input#email.form__input(type='email', value=`${user.email}`, required, name='email')
+            .form__group.form__photo-upload
+              img.form__user-photo(src=`img/users/${user.photo}`, alt=`${user.name}`)
+              input.form_upload(type='file', accept='image/*', id='photo', name='photo')
+              label(for='photo') Choose New Photo
+            .form__group.right
+              button.btn.btn--small.btn--green Save settings
+        .line &nbsp;
+        .user-view__form-container
+            h2.heading-secondary.ma-bt-md Password change
+            form.form.form-user-password
+              .form__group
+                  label.form__label(for='password-current') Current password
+                  input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
+              .form__group
+                  label.form__label(for='password') New password
+                  input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+              .form__group.ma-bt-lg
+                  label.form__label(for='password-confirm') Confirm password
+                  input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+              .form__group.right
+                  button.btn.btn--small.btn--green#btn--save-password Save password
+
+
