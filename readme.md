@@ -9,6 +9,8 @@ Natours has
 4.Login/Register feature
 5.CMS for Admin
 6.JWT Authentication
+7.Image Resizer for resizing images during uploads
+8.Multer for Image storage
 
 Natours is an ecommerce site that allow purchases of tours, a user can register and login, 
 there are three different roles for users: 
